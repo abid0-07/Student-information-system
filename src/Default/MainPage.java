@@ -57,9 +57,14 @@ public class MainPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == yesButton){
+            this.setVisible(false);
+            this.dispose();
             new Login();
+
         }
         if(e.getSource() == noButton){
+            this.setVisible(false);
+            this.dispose();
             new Registration();
         }
     }

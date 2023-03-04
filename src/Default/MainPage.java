@@ -15,7 +15,7 @@ public class MainPage extends JFrame implements ActionListener {
 
     MainPage(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
+
 
         panelView = new JPanel();
         panelView.setBounds(0,0,420,420);
@@ -46,10 +46,12 @@ public class MainPage extends JFrame implements ActionListener {
         panelView.add(noButton);
         panelView.add(textLabel);
         this.add(panelView);
+//
 
         this.setSize(420,420);
         this.setResizable(false);
         this.setLayout(null);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 

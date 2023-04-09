@@ -31,19 +31,14 @@ public class MainPage extends JFrame implements ActionListener {
         yesButton = new JButton("Yes");
         yesButton.setFocusable(false);
         yesButton.setBackground(Color.GREEN);
-        yesButton.setLocation(250,150);
+        yesButton.setLocation(150,150);
         yesButton.setSize(80,30);
         yesButton.addActionListener(this);
 
-        noButton = new JButton("No");
-        noButton.setFocusable(false);
-        noButton.setBackground(Color.RED);
-        noButton.setLocation(100,150);
-        noButton.setSize(80,30);
-        noButton.addActionListener(this);
+
 
         panelView.add(yesButton);
-        panelView.add(noButton);
+
         panelView.add(textLabel);
         this.add(panelView);
 //

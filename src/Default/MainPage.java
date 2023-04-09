@@ -1,12 +1,14 @@
 package Default;
 
+import Person.Student;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainPage extends JFrame implements ActionListener {
-    private JButton yesButton;
+public class MainPage extends JFrame implements ActionListener  {
+    private JButton viewButton;
     private JButton noButton;
     private JLabel textLabel;
 
@@ -18,32 +20,22 @@ public class MainPage extends JFrame implements ActionListener {
 
 
         panelView = new JPanel();
-        panelView.setBounds(0,0,420,420);
+        panelView.setBounds(0,0,600,600);
         panelView.setBackground(Color.CYAN);
         panelView.setLayout(null);
-//        mainLabel = new JLabel("");
 
-        textLabel = new JLabel("Do you have an account?");
-        textLabel.setLocation(100,50);
-        textLabel.setSize(230,130);
-        textLabel.setFont(new Font("Roboto", Font.PLAIN, 20));
+        viewButton = new JButton("View");
+        viewButton.setFont(new Font("Serif", Font.PLAIN,12));
+        viewButton.setLocation(250,50);
+        viewButton.setSize(60,30);
+        viewButton.setFocusable(false);
+        viewButton.addActionListener(this);
 
-        yesButton = new JButton("Yes");
-        yesButton.setFocusable(false);
-        yesButton.setBackground(Color.GREEN);
-        yesButton.setLocation(150,150);
-        yesButton.setSize(80,30);
-        yesButton.addActionListener(this);
-
-
-
-        panelView.add(yesButton);
-
-        panelView.add(textLabel);
+        panelView.add(viewButton);
         this.add(panelView);
 //
 
-        this.setSize(420,420);
+        this.setSize(600,600);
         this.setResizable(false);
         this.setLayout(null);
         this.setLocationRelativeTo(null);
@@ -53,16 +45,8 @@ public class MainPage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == yesButton){
-            this.setVisible(false);
-            this.dispose();
-            new Login();
-
-        }
-        if(e.getSource() == noButton){
-            this.setVisible(false);
-            this.dispose();
-            new Registration();
+        if(e.getSource()==viewButton){
+            new Student();
         }
     }
 }

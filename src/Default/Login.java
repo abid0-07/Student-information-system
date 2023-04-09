@@ -47,18 +47,7 @@ public class Login extends JFrame{
         showPassword.setLocation(20,150);
         showPassword.setSize(250,30);
         showPassword.setBackground(null);
-        showPassword.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if(showPassword.isSelected()) {
 
-                }
-//                else{
-//
-//                }
-
-            }
-        });
 
 
         panel.add(userName);

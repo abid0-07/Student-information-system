@@ -10,8 +10,8 @@ import java.io.IOException;
 
 public class MainPage extends JFrame implements ActionListener  {
     private JButton viewButton;
-    private JButton noButton;
-    private JLabel textLabel;
+    private JButton searchButton;
+    private JButton addButton;
 
     private JPanel panelView;
 
@@ -25,14 +25,32 @@ public class MainPage extends JFrame implements ActionListener  {
         panelView.setBackground(Color.CYAN);
         panelView.setLayout(null);
 
+        searchButton = new JButton("Search");
+        searchButton.setFont(new Font("Serif", Font.PLAIN,16));
+        searchButton.setLocation(180,50);
+        searchButton.setSize(80,50);
+        searchButton.setFocusable(false);
+        searchButton.addActionListener(this);
+
         viewButton = new JButton("View");
         viewButton.setFont(new Font("Serif", Font.PLAIN,12));
         viewButton.setLocation(250,50);
-        viewButton.setSize(60,30);
+        viewButton.setSize(60,50);
         viewButton.setFocusable(false);
         viewButton.addActionListener(this);
 
+
+
+        addButton = new JButton("Add");
+        addButton.setFont(new Font("Serif", Font.PLAIN,12));
+        addButton.setLocation(300,50);
+        addButton.setSize(60,50);
+        addButton.setFocusable(false);
+        addButton.addActionListener(this);
+
         panelView.add(viewButton);
+        panelView.add(searchButton);
+        panelView.add(addButton);
         this.add(panelView);
 //
 
@@ -46,12 +64,16 @@ public class MainPage extends JFrame implements ActionListener  {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==searchButton){}
         if(e.getSource()==viewButton){
             try {
                 new Student();
+//                this.dispose();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         }
+
+        if(e.getSource()==addButton){}
     }
 }

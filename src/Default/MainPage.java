@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class MainPage extends JFrame implements ActionListener  {
     private JButton viewButton;
@@ -46,7 +47,11 @@ public class MainPage extends JFrame implements ActionListener  {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==viewButton){
-            new Student();
+            try {
+                new Student();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 }

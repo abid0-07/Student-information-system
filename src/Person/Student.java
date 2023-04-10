@@ -2,6 +2,7 @@ package Person;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Student {
@@ -42,23 +43,34 @@ public class Student {
         this.email = email;
     }
 
-    public Student(){
+    public Student() throws IOException {
         Scanner input = new Scanner(System.in);
-        File studentFile = new File("/src/Files/Students.txt");
+
         try {
-            Scanner inputFile = new Scanner(studentFile);
-            System.out.print("ID\t");
-            System.out.print("Name\t");
-            System.out.print("phone\t");
-            System.out.println("Email");
-            while(input.hasNext()){
-                String line = inputFile.nextLine();
-                String[] studentInfo = line.split(" ");
-                for (String part:studentInfo){
-                    System.out.print(part+"\t");
+
+            File studentFile = new File("Students.txt");
+            if(studentFile.exists()){
+                System.out.println("File exists");
+                Scanner inputFile = new Scanner(studentFile);
+                System.out.print("ID\t\t\t");
+                System.out.print("  Name\t\t\t");
+                System.out.print("phone\t\t\t");
+                System.out.println("Email");
+                while(inputFile.hasNextLine()){
+                    String line = inputFile.nextLine();
+                    String[] studentInfo = line.split(" ");
+                    for (String part:studentInfo){
+                        System.out.print(part+"\t\t");
+                    }
+                    System.out.println();
                 }
-                System.out.println();
+                inputFile.close();
             }
+            else {
+                System.out.println("file doesn't exits");
+            }
+
+
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

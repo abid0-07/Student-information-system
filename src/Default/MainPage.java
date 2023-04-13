@@ -21,7 +21,7 @@ public class MainPage extends JFrame implements ActionListener  {
 
 
         panelView = new JPanel();
-        panelView.setBounds(0,0,600,600);
+        panelView.setBounds(0,0,1000,800);
         panelView.setBackground(Color.CYAN);
         panelView.setLayout(null);
 
@@ -54,7 +54,7 @@ public class MainPage extends JFrame implements ActionListener  {
         this.add(panelView);
 //
 
-        this.setSize(600,600);
+        this.setSize(1000,800);
         this.setResizable(false);
         this.setLayout(null);
         this.setLocationRelativeTo(null);

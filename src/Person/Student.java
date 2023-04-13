@@ -1,7 +1,5 @@
 package Person;
 
-import Default.SecondPage;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -49,7 +47,7 @@ public class Student {
         Scanner input = new Scanner(System.in);
 
         try {
-            new SecondPage();
+
             File studentFile = new File("Students.txt");
             if(studentFile.exists()){
                 System.out.println("File exists");
@@ -67,7 +65,6 @@ public class Student {
                     System.out.println();
                 }
                 inputFile.close();
-
             }
             else {
                 System.out.println("file doesn't exits");

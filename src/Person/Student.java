@@ -56,19 +56,24 @@ public class Student {
                 Scanner inputFile = new Scanner(studentFile);
                 System.out.print("ID\t\t\t");
                 secondPage.createNewLabel("ID");
+
                 System.out.print("  Name\t\t\t");
                 secondPage.createNewLabel("Name");
+
                 System.out.print("phone\t\t\t");
                 secondPage.createNewLabel("Phone");
+
                 System.out.println("Email");
                 secondPage.createNewLabel("Email");
+
                 while(inputFile.hasNextLine()){
                     String line = inputFile.nextLine();
                     String[] studentInfo = line.split(" ");
                     for (String part:studentInfo){
-                        System.out.print(part+"\t\t");
                         secondPage.createNewLabel(part);
+                        System.out.print(part+"\t\t");
                     }
+
                     System.out.println();
                 }
                 inputFile.close();

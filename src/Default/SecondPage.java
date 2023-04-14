@@ -9,7 +9,7 @@ public class SecondPage extends JFrame{
     private int count=0;
     private int xAxis=10;
     private int yAxis=10;
-    private int width=150;
+    private int width=200;
     private int height=50;
 
 
@@ -32,30 +32,34 @@ public class SecondPage extends JFrame{
 
     public void createNewLabel(String text){
         label = new JLabel();
-        label.setFont(new Font("Serif", Font.PLAIN,12));
+        label.setFont(new Font("Serif", Font.PLAIN,16));
         label.setSize(width,height);
         label.setBackground(new Color(204,255,255));
         label.setOpaque(true);
+        label.setText(text);
+        label.setHorizontalAlignment(JLabel.CENTER);
+
+
 
         if(count==0){
             label.setLocation(xAxis,yAxis);
             xAxis += (20+width);
-            label.setText(text);
-            count++;
+
         }
-        else if(count%4!=0){
-            label.setLocation(xAxis,yAxis);
-            xAxis += (20+width);
-            label.setText(text);
-            count++;
-        }
-        else if(count%4 == 0 ){
+        if(count%4 == 0 ){
             yAxis += (20+height);
             xAxis=10;
             label.setLocation(xAxis,yAxis);
-            label.setText(text);
-            count++;
+
         }
+
+        if(count%4!=1||count%4!=2|| count%4!=3 ) {
+            label.setLocation(xAxis, yAxis);
+            xAxis += (20 + width);
+        }
+
+
+        count++;
         mainPanel.add(label);
     }
 

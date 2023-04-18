@@ -14,7 +14,10 @@ public class MainPage extends JFrame implements ActionListener  {
     private JButton addButton;
 
     private JPanel panelView;
-
+    private int width=300;
+    private int height=80;
+    private int xAxis= 80;
+    private int yAxis = 100;
 
     MainPage(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -25,26 +28,26 @@ public class MainPage extends JFrame implements ActionListener  {
         panelView.setBackground(Color.CYAN);
         panelView.setLayout(null);
 
-        searchButton = new JButton("Search");
+        searchButton = new JButton("Search Student by ID");
         searchButton.setFont(new Font("Serif", Font.PLAIN,16));
-        searchButton.setLocation(180,50);
-        searchButton.setSize(80,50);
+        searchButton.setLocation(xAxis + width,yAxis);
+        searchButton.setSize(width,height);
         searchButton.setFocusable(false);
         searchButton.addActionListener(this);
 
-        viewButton = new JButton("View");
-        viewButton.setFont(new Font("Serif", Font.PLAIN,12));
-        viewButton.setLocation(250,50);
-        viewButton.setSize(60,50);
+        viewButton = new JButton("View Student List");
+        viewButton.setFont(new Font("Serif", Font.PLAIN,16));
+        viewButton.setLocation(xAxis+width,yAxis+height);
+        viewButton.setSize(width,height);
         viewButton.setFocusable(false);
         viewButton.addActionListener(this);
 
 
 
-        addButton = new JButton("Add");
-        addButton.setFont(new Font("Serif", Font.PLAIN,12));
-        addButton.setLocation(300,50);
-        addButton.setSize(60,50);
+        addButton = new JButton("Add Student to the list");
+        addButton.setFont(new Font("Serif", Font.PLAIN,16));
+        addButton.setLocation(xAxis+width,yAxis+height*2);
+        addButton.setSize(width,height);
         addButton.setFocusable(false);
         addButton.addActionListener(this);
 
@@ -64,7 +67,9 @@ public class MainPage extends JFrame implements ActionListener  {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==searchButton){}
+        if (e.getSource()==searchButton){
+
+        }
         if(e.getSource()==viewButton){
             try {
                 new Student();
@@ -74,6 +79,11 @@ public class MainPage extends JFrame implements ActionListener  {
             }
         }
 
-        if(e.getSource()==addButton){}
+        if(e.getSource()==addButton){
+//            SecondPage secondPage = new SecondPage();
+//            secondPage.addNewStudent();
+            new thirdPage();
+
+        }
     }
 }

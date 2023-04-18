@@ -2,8 +2,10 @@ package Default;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SecondPage extends JFrame{
+public class SecondPage extends JFrame implements ActionListener {
     private JPanel mainPanel;
     private JLabel label;
     private int count=0;
@@ -63,4 +65,12 @@ public class SecondPage extends JFrame{
         mainPanel.add(label);
     }
 
+    public void searchStudent(){
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
 }

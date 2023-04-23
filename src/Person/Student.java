@@ -48,46 +48,46 @@ public class Student {
     public Student() throws IOException {
         Scanner input = new Scanner(System.in);
 
+        Scanner inputFile = null;
         try {
             SecondPage secondPage = new SecondPage();
             File studentFile = new File("Students.txt");
-            if(studentFile.exists()){
+            if (studentFile.exists()) {
                 System.out.println("File exists");
-                Scanner inputFile = new Scanner(studentFile);
-                System.out.print("ID\t\t\t");
+                inputFile = new Scanner(studentFile);
+//                System.out.print("ID\t\t\t");
                 secondPage.createNewLabel("ID");
 
-                System.out.print("  Name\t\t\t");
+//                System.out.print("  Name\t\t\t");
                 secondPage.createNewLabel("Name");
 
-                System.out.print("phone\t\t\t");
+//                System.out.print("phone\t\t\t");
                 secondPage.createNewLabel("Phone");
 
-                System.out.println("Email");
+//                System.out.println("Email");
                 secondPage.createNewLabel("Email");
 
-                while(inputFile.hasNextLine()){
+                while (inputFile.hasNextLine()) {
                     String line = inputFile.nextLine();
                     String[] studentInfo = line.split(" ");
-                    for (String part:studentInfo){
+                    for (String part : studentInfo) {
                         secondPage.createNewLabel(part);
-                        System.out.print(part+"\t\t");
+//                        System.out.print(part + "\t\t");
                     }
 
                     System.out.println();
                 }
-                inputFile.close();
 
 
-            }
-            else {
+            } else {
                 System.out.println("file doesn't exits");
             }
 
 
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
+        } finally {
+            inputFile.close();
         }
     }
 }

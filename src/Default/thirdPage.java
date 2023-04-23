@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class thirdPage extends JFrame implements ActionListener {
     String id;
@@ -15,6 +19,8 @@ public class thirdPage extends JFrame implements ActionListener {
     private int width=200;
     private int height=50;
     private JPanel mainPanel;
+    JButton submitButton;
+    JButton clearButton;
 
     thirdPage(){
         mainPanel = new JPanel();
@@ -88,14 +94,14 @@ public class thirdPage extends JFrame implements ActionListener {
         xAxis = 20;
         yAxis = yAxis+(height*5)+10;
 
-        JButton submitButton = new JButton("Submit");
+        submitButton = new JButton("Submit");
         submitButton.setFont(new Font("Serif", Font.PLAIN,16));
         submitButton.setLocation(xAxis,yAxis);
         submitButton.setSize(width,height);
         submitButton.setFocusable(false);
         submitButton.addActionListener(this);
 
-        JButton clearButton = new JButton("Clear");
+        clearButton = new JButton("Clear");
         clearButton.setFont(new Font("Serif", Font.PLAIN,16));
         clearButton.setLocation(xAxis+width + 10,yAxis);
         clearButton.setSize(width,height);
@@ -124,6 +130,57 @@ public class thirdPage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==submitButton){
+            Boolean idCheck = containsOnlyNumber();
+            Boolean emailCheck = isValidEmail() ;
+            if(idCheck==emailCheck==true) {
 
+                FileWriter writer = null;
+                try {
+                    File studentFile = new File("Students.txt");
+                    writer = new FileWriter(studentFile, true);
+                    writer.write(id);
+                    System.out.println(id);
+                    writer.write(" ");
+                    writer.write(name);
+                    writer.write(" ");
+                    writer.write(phone);
+                    writer.write(" ");
+                    writer.write(email);
+                    writer.close();
+
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            else {
+                System.out.println("Problem in id and email");
+            }
+        }
+
+        if(e.getSource()==clearButton){}
+    }
+
+    private boolean containsOnlyNumber(){
+        if(id == null || id.isEmpty()){
+            return false;
+        }
+        for (int i = 0; i < id.length();i++){
+            if((!Character.isDigit(id.charAt(i)) || id.charAt(i)== '-') ){
+                return false;
+            }
+        }
+        return true;
+    }
+    private boolean isValidEmail(){
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +"[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
+
+        Pattern pattern = Pattern.compile(emailRegex);
+        if(email == null) {
+            return false;
+        }
+        return pattern.matcher(email).matches();
     }
 }
+

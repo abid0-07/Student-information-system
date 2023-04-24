@@ -5,4 +5,5 @@
 213-35-3190 SANAUL 0170313908 adnan35-3190@diu.edu.bd
 213-35-3191 Basher 01601234818 basher35-3191@diu.edu.bd
 213-35-753 Nabil 0161890027 nabil35-753@diu.edu.bd
-213-35-754 Kavi 0178032100 kavi35-754@diu.edu.bd
+213-35-754 Kavi 0178032100 kavi35-754@diu.edu.bd   
+

@@ -21,6 +21,10 @@ public class thirdPage extends JFrame implements ActionListener {
     private JPanel mainPanel;
     JButton submitButton;
     JButton clearButton;
+    JTextField idText;
+    JTextField nameText;
+    JTextField phoneText;
+    JTextField emailText;
 
     thirdPage(){
         mainPanel = new JPanel();
@@ -68,27 +72,27 @@ public class thirdPage extends JFrame implements ActionListener {
         xAxis = (xAxis + width + 10);
         yAxis = 20;
 
-        JTextField idText = new JTextField();
+        idText = new JTextField();
         idText.setSize(width,height);
         idText.setLocation(xAxis,yAxis);
-        id = idText.getText();
 
 
 
-        JTextField nameText = new JTextField();
+
+        nameText = new JTextField();
         nameText.setSize(width,height);
         nameText.setLocation(xAxis,yAxis+height+10);
-        name = nameText.getText();
 
-        JTextField phoneText = new JTextField();
+
+        phoneText = new JTextField();
         phoneText.setSize(width,height);
         phoneText.setLocation(xAxis,yAxis+(height*2)+10);
-        phone = phoneText.getText();
 
-        JTextField emailText = new JTextField();
+
+        emailText = new JTextField();
         emailText.setSize(width,height);
         emailText.setLocation(xAxis,yAxis+(height*3)+10);
-        email = emailText.getText();
+
 
 
         xAxis = 20;
@@ -131,14 +135,21 @@ public class thirdPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==submitButton){
-            Boolean idCheck = containsOnlyNumber();
-            Boolean emailCheck = isValidEmail() ;
-            if(idCheck==emailCheck==true) {
+            id = idText.getText();
+            name = nameText.getText();
+            phone = phoneText.getText();
+            email = emailText.getText();
 
-                FileWriter writer = null;
+//            Boolean idCheck = containsOnlyNumber();
+            Boolean emailCheck = isValidEmail() ;
+            if(emailCheck) {
+
+
                 try {
+                    System.out.println("In try block");
                     File studentFile = new File("Students.txt");
-                    writer = new FileWriter(studentFile, true);
+                    FileWriter writer = new FileWriter(studentFile, true);
+//                    writer.write("\n");
                     writer.write(id);
                     System.out.println(id);
                     writer.write(" ");
@@ -146,7 +157,7 @@ public class thirdPage extends JFrame implements ActionListener {
                     writer.write(" ");
                     writer.write(phone);
                     writer.write(" ");
-                    writer.write(email);
+                    writer.write(email + "\n");
                     writer.close();
 
                 } catch (IOException ex) {
@@ -154,24 +165,29 @@ public class thirdPage extends JFrame implements ActionListener {
                 }
             }
             else {
-                System.out.println("Problem in id and email");
+                System.out.println("Problem email");
             }
         }
 
-        if(e.getSource()==clearButton){}
+        if(e.getSource()==clearButton){
+            idText.setText("");
+            nameText.setText("");
+            phoneText.setText("");
+            emailText.setText("");
+        }
     }
 
-    private boolean containsOnlyNumber(){
-        if(id == null || id.isEmpty()){
-            return false;
-        }
-        for (int i = 0; i < id.length();i++){
-            if((!Character.isDigit(id.charAt(i)) || id.charAt(i)== '-') ){
-                return false;
-            }
-        }
-        return true;
-    }
+//    private boolean containsOnlyNumber(){
+//        if(id == null || id.isEmpty()){
+//            return false;
+//        }
+//        for (int i = 0; i < id.length();i++){
+//            if((!Character.isDigit(id.charAt(i)) || id.charAt(i)== '-') ){
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
     private boolean isValidEmail(){
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +"[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";

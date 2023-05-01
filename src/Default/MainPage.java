@@ -68,7 +68,7 @@ public class MainPage extends JFrame implements ActionListener  {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==searchButton){
-
+                new searchStudent();
         }
         if(e.getSource()==viewButton){
             try {

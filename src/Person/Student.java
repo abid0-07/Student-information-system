@@ -1,6 +1,6 @@
 package Person;
 
-import Default.SecondPage;
+import Default.viewStudent;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -50,7 +50,7 @@ public class Student {
 
         Scanner inputFile = null;
         try {
-            SecondPage secondPage = new SecondPage();
+            viewStudent secondPage = new viewStudent();
             File studentFile = new File("Students.txt");
             if (studentFile.exists()) {
                 System.out.println("File exists");
@@ -75,9 +75,8 @@ public class Student {
 //                        System.out.print(part + "\t\t");
                     }
 
-                    System.out.println();
+//                    System.out.println();
                 }
-
 
             } else {
                 System.out.println("file doesn't exits");

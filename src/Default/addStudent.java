@@ -9,7 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
-public class thirdPage extends JFrame implements ActionListener {
+public class addStudent extends JFrame implements ActionListener {
     String id;
     String name;
     String phone;
@@ -21,21 +21,18 @@ public class thirdPage extends JFrame implements ActionListener {
     private JPanel mainPanel;
     JButton submitButton;
     JButton clearButton;
+    JButton mainMenuButton;
     JTextField idText;
     JTextField nameText;
     JTextField phoneText;
     JTextField emailText;
 
-    thirdPage(){
+    addStudent(){
         mainPanel = new JPanel();
 
         mainPanel.setBounds(0,0,1000,800);
         mainPanel.setBackground(Color.CYAN);
         mainPanel.setLayout(null);
-
-
-
-
 
         JLabel idLabel = new JLabel("ID");
         idLabel.setFont(new Font("Serif", Font.PLAIN,16));
@@ -112,6 +109,13 @@ public class thirdPage extends JFrame implements ActionListener {
         clearButton.setFocusable(false);
         clearButton.addActionListener(this);
 
+        mainMenuButton = new JButton("Main Menu");
+        mainMenuButton.setFont(new Font("Serif", Font.PLAIN,16));
+        mainMenuButton.setLocation(xAxis+width*2+ 10*2,yAxis);
+        mainMenuButton.setSize(width,height);
+        mainMenuButton.setFocusable(false);
+        mainMenuButton.addActionListener(this);
+
         mainPanel.add(idLabel);
         mainPanel.add(nameLabel);
         mainPanel.add(phoneLabel);
@@ -122,6 +126,7 @@ public class thirdPage extends JFrame implements ActionListener {
         mainPanel.add(emailText);
         mainPanel.add(submitButton);
         mainPanel.add(clearButton);
+        mainPanel.add(mainMenuButton);
 
         this.add(mainPanel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -159,6 +164,8 @@ public class thirdPage extends JFrame implements ActionListener {
                     writer.write(" ");
                     writer.write(email + "\n");
                     writer.close();
+                    this.dispose();
+                    new MainPage();
 
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -166,6 +173,8 @@ public class thirdPage extends JFrame implements ActionListener {
             }
             else {
                 System.out.println("Problem email");
+                this.dispose();
+                new MainPage();
             }
         }
 
@@ -174,6 +183,10 @@ public class thirdPage extends JFrame implements ActionListener {
             nameText.setText("");
             phoneText.setText("");
             emailText.setText("");
+        }
+        if(e.getSource()==mainMenuButton){
+            this.dispose();
+            new MainPage();
         }
     }
 

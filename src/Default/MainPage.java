@@ -82,7 +82,8 @@ public class MainPage extends JFrame implements ActionListener  {
         if(e.getSource()==addButton){
 //            SecondPage secondPage = new SecondPage();
 //            secondPage.addNewStudent();
-            new thirdPage();
+            this.dispose();
+            new addStudent();
 
         }
     }

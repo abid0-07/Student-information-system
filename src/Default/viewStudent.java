@@ -4,10 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
-public class SecondPage extends JFrame implements ActionListener {
+public class viewStudent extends JFrame {
     private JPanel mainPanel;
     private JLabel label;
+
     private int count=0;
     private int xAxis=10;
     private int yAxis=10;
@@ -15,7 +19,7 @@ public class SecondPage extends JFrame implements ActionListener {
     private int height=50;
 
 
-    public SecondPage(){
+    public viewStudent(){
         mainPanel = new JPanel();
 
         mainPanel.setBounds(0,0,1000,800);
@@ -41,8 +45,6 @@ public class SecondPage extends JFrame implements ActionListener {
         label.setText(text);
         label.setHorizontalAlignment(JLabel.CENTER);
 
-
-
         if(count==0){
             label.setLocation(xAxis,yAxis);
             xAxis += (20+width);
@@ -60,17 +62,11 @@ public class SecondPage extends JFrame implements ActionListener {
             xAxis += (20 + width);
         }
 
-
         count++;
         mainPanel.add(label);
     }
 
-    public void searchStudent(){
 
-    }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
-    }
 }

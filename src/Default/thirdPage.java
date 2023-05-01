@@ -198,5 +198,6 @@ public class thirdPage extends JFrame implements ActionListener {
         }
         return pattern.matcher(email).matches();
     }
+
 }
 

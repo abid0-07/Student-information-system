@@ -20,7 +20,7 @@ public class MainPage extends JFrame implements ActionListener  {
     private int xAxis= 50;
     private int yAxis = 80;
 
-    MainPage(){
+    public MainPage(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 

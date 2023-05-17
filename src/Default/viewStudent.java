@@ -8,9 +8,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class viewStudent extends JFrame {
+public class viewStudent extends JFrame implements ActionListener {
     private JPanel mainPanel;
     private JLabel label;
+    private JLabel headingLabel;
+    protected JButton mainMenuButton;
 
     private int count=0;
     private int xAxis=10;
@@ -26,7 +28,25 @@ public class viewStudent extends JFrame {
         mainPanel.setBackground(Color.CYAN);
         mainPanel.setLayout(null);
 
+        mainMenuButton = new JButton("Back");
+        mainMenuButton.setFont(new Font("Serif", Font.PLAIN,16));
+        mainMenuButton.setLocation(5,5);
+        mainMenuButton.setSize(width,height);
+        mainMenuButton.setFocusable(false);
+        mainMenuButton.addActionListener(this) ;
 
+        headingLabel = new JLabel("Student List");
+        headingLabel.setFont(new Font("Serif", Font.ITALIC,20));
+        headingLabel.setLocation(350,5);
+        headingLabel.setSize(width,height);
+        headingLabel.setFocusable(false);
+        headingLabel.setBackground(Color.lightGray);
+        headingLabel.setOpaque(true);
+        headingLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        headingLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+
+        mainPanel.add(mainMenuButton);
+        mainPanel.add(headingLabel);
         this.add(mainPanel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(1000,800);
@@ -69,4 +89,9 @@ public class viewStudent extends JFrame {
 
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        this.dispose();
+        new MainPage();
+    }
 }

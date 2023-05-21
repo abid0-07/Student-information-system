@@ -4,11 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class viewStudent extends JFrame implements ActionListener {
+public class viewStudent extends JFrame implements ActionListener, AdjustmentListener {
     private JPanel mainPanel;
     private JLabel label;
     private JLabel headingLabel;
@@ -19,6 +21,7 @@ public class viewStudent extends JFrame implements ActionListener {
     private int yAxis=10;
     private int width=200;
     private int height=50;
+    private JScrollBar scrollBar;
 
 
     public viewStudent(){
@@ -28,26 +31,12 @@ public class viewStudent extends JFrame implements ActionListener {
         mainPanel.setBackground(Color.CYAN);
         mainPanel.setLayout(null);
 
-        mainMenuButton = new JButton("Back");
-        mainMenuButton.setFont(new Font("Serif", Font.PLAIN,16));
-        mainMenuButton.setLocation(5,5);
-        mainMenuButton.setSize(width,height);
-        mainMenuButton.setFocusable(false);
-        mainMenuButton.addActionListener(this) ;
-
-        headingLabel = new JLabel("Student List");
-        headingLabel.setFont(new Font("Serif", Font.ITALIC,20));
-        headingLabel.setLocation(350,5);
-        headingLabel.setSize(width,height);
-        headingLabel.setFocusable(false);
-        headingLabel.setBackground(Color.lightGray);
-        headingLabel.setOpaque(true);
-        headingLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        headingLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+        initializationPart();
 
         mainPanel.add(mainMenuButton);
         mainPanel.add(headingLabel);
         this.add(mainPanel);
+        this.add(scrollBar);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(1000,800);
         this.setLayout(null);
@@ -87,11 +76,37 @@ public class viewStudent extends JFrame implements ActionListener {
     }
 
 
+    private void initializationPart(){
+        mainMenuButton = new JButton("Back");
+        mainMenuButton.setFont(new Font("Serif", Font.PLAIN,16));
+        mainMenuButton.setLocation(5,5);
+        mainMenuButton.setSize(width,height);
+        mainMenuButton.setFocusable(false);
+        mainMenuButton.addActionListener(this) ;
 
+        headingLabel = new JLabel("Student List");
+        headingLabel.setFont(new Font("Serif", Font.ITALIC,20));
+        headingLabel.setLocation(350,5);
+        headingLabel.setSize(width,height);
+        headingLabel.setFocusable(false);
+        headingLabel.setBackground(Color.lightGray);
+        headingLabel.setOpaque(true);
+        headingLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        headingLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+
+        scrollBar = new JScrollBar(Scrollbar.VERTICAL,0,1,0,255);
+        scrollBar.setBounds(950,0,50,700);
+        scrollBar.addAdjustmentListener(this);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         this.dispose();
         new MainPage();
+    }
+
+    @Override
+    public void adjustmentValueChanged(AdjustmentEvent e) {
+        
     }
 }

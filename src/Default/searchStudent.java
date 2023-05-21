@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
@@ -18,7 +16,7 @@ public class searchStudent extends JFrame implements ActionListener {
     private String id;
     private JButton submitButton;
     private JButton clearButton;
-    private JButton mainMenu;
+    private JButton mainMenuButton;
     private JLabel headingLabel;
 
     int xAxis = 100;
@@ -32,12 +30,12 @@ public class searchStudent extends JFrame implements ActionListener {
         mainPanel.setBackground(Color.CYAN);
         mainPanel.setLayout(null);
 
-        mainMenu = new JButton("Back");
-        mainMenu.setFont(new Font("Serif", Font.PLAIN,16));
-        mainMenu.setLocation(20,50);
-        mainMenu.setSize(width,height);
-        mainMenu.setFocusable(false);
-        mainMenu.addActionListener(this);
+        mainMenuButton = new JButton("Back");
+        mainMenuButton.setFont(new Font("Serif", Font.PLAIN,16));
+        mainMenuButton.setLocation(20,50);
+        mainMenuButton.setSize(width,height);
+        mainMenuButton.setFocusable(false);
+        mainMenuButton.addActionListener(this);
 
         headingLabel= new JLabel("Search Student");
         headingLabel.setFont(new Font("Serif", Font.ITALIC,18));
@@ -85,7 +83,7 @@ public class searchStudent extends JFrame implements ActionListener {
         mainPanel.add(idTextField);
         mainPanel.add(submitButton);
         mainPanel.add(clearButton);
-        mainPanel.add(mainMenu);
+        mainPanel.add(mainMenuButton);
 
         this.add(mainPanel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -105,6 +103,10 @@ public class searchStudent extends JFrame implements ActionListener {
             }
             if(e.getSource()==clearButton){
                 idTextField.setText("");
+            }
+            if(e.getSource()==mainMenuButton){
+                new MainPage();
+                this.dispose();
             }
     }
     public void searchStudent(){

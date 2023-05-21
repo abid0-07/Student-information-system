@@ -1,5 +1,6 @@
 package Person;
 
+import Default.MainPage;
 import Default.viewStudent;
 
 import java.io.File;
@@ -55,16 +56,16 @@ public class Student {
             if (studentFile.exists()) {
                 System.out.println("File exists");
                 inputFile = new Scanner(studentFile);
-//                System.out.print("ID\t\t\t");
+
                 secondPage.createNewLabel("ID");
 
-//                System.out.print("  Name\t\t\t");
+
                 secondPage.createNewLabel("Name");
 
-//                System.out.print("phone\t\t\t");
+
                 secondPage.createNewLabel("Phone");
 
-//                System.out.println("Email");
+
                 secondPage.createNewLabel("Email");
 
                 while (inputFile.hasNextLine()) {
@@ -80,6 +81,7 @@ public class Student {
 
             } else {
                 System.out.println("file doesn't exits");
+                new MainPage();
             }
 
 

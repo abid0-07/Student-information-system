@@ -69,7 +69,7 @@ public class MainPage extends JFrame implements ActionListener  {
         panelView.add(addButton);
         this.add(panelView);
 //
-
+        this.setTitle("Student Information System");
         this.setSize(1000,800);
         this.setResizable(false);
         this.setLayout(null);

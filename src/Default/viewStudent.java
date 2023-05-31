@@ -2,15 +2,12 @@ package Default;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
+import java.awt.event.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class viewStudent extends JFrame implements ActionListener, AdjustmentListener {
+public class viewStudent extends JFrame implements ActionListener{
     private JPanel mainPanel;
     private JLabel label;
     private JLabel headingLabel;
@@ -22,21 +19,26 @@ public class viewStudent extends JFrame implements ActionListener, AdjustmentLis
     private int width=200;
     private int height=50;
     private JScrollBar scrollBar;
+    private JScrollPane scrollPane;
 
 
     public viewStudent(){
+
+
+        initializationPart();
+
         mainPanel = new JPanel();
 
         mainPanel.setBounds(0,0,1000,800);
         mainPanel.setBackground(Color.CYAN);
         mainPanel.setLayout(null);
 
-        initializationPart();
-
         mainPanel.add(mainMenuButton);
         mainPanel.add(headingLabel);
+
         this.add(mainPanel);
-        this.add(scrollBar);
+
+        this.setTitle("Student Information System");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(1000,800);
         this.setLayout(null);
@@ -94,9 +96,7 @@ public class viewStudent extends JFrame implements ActionListener, AdjustmentLis
         headingLabel.setHorizontalAlignment(SwingConstants.CENTER);
         headingLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 
-        scrollBar = new JScrollBar(Scrollbar.VERTICAL,0,1,0,255);
-        scrollBar.setBounds(950,0,50,700);
-        scrollBar.addAdjustmentListener(this);
+
     }
 
     @Override
@@ -105,8 +105,4 @@ public class viewStudent extends JFrame implements ActionListener, AdjustmentLis
         new MainPage();
     }
 
-    @Override
-    public void adjustmentValueChanged(AdjustmentEvent e) {
-        
-    }
 }

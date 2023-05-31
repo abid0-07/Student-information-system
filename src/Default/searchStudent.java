@@ -86,6 +86,7 @@ public class searchStudent extends JFrame implements ActionListener {
         mainPanel.add(mainMenuButton);
 
         this.add(mainPanel);
+        this.setTitle("Student Information System");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(1000,800);
         this.setLayout(null);

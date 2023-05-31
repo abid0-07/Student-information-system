@@ -65,6 +65,7 @@ public class addStudent extends JFrame implements ActionListener {
         mainPanel.add(mainMenuButton);
 
         this.add(mainPanel);
+        this.setTitle("Student Information System");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(1000,800);
         this.setLayout(null);
@@ -103,8 +104,8 @@ public class addStudent extends JFrame implements ActionListener {
                     String text = "Data Added";
                     setMessageLabel(text);
 
-//                    this.dispose();
-//                    new MainPage();
+                    this.dispose();
+                    new MainPage();
 
                 } catch (IOException ex) {
                     ex.printStackTrace();

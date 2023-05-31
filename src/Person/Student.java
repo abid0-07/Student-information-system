@@ -87,8 +87,8 @@ public class Student {
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
-        } finally {
-            inputFile.close();
-        }
-    }
+//        } finally {
+//            inputFile.close();
+//        }
+    }}
 }

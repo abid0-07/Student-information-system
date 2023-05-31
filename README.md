@@ -3,6 +3,6 @@ This is a small project to add, save, seach student information. In this project
 
 
 ---
-***AddStudentClass*** : https://github.com/abid0-07/Student-information-system/blob/master/src/Default/addStudent.java
-***SearchStudent*** : https://github.com/abid0-07/Student-information-system/blob/master/src/Default/searchStudent.java
-***ViewStudentClass*** : https://github.com/abid0-07/Student-information-system/blob/master/src/Default/viewStudent.java
+<p>***AddStudentClass*** : https://github.com/abid0-07/Student-information-system/blob/master/src/Default/addStudent.java </p>
+<p>***SearchStudent*** : https://github.com/abid0-07/Student-information-system/blob/master/src/Default/searchStudent.java </p>
+<p>***ViewStudentClass*** : https://github.com/abid0-07/Student-information-system/blob/master/src/Default/viewStudent.java </p>
